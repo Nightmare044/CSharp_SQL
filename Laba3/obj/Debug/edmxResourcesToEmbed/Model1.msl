@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище NightClubModelContainer" CdmEntityContainer="NightClubEntities">
+    <EntitySetMapping Name="Apartament">
+      <EntityTypeMapping TypeName="NightClubModel.Apartament">
+        <MappingFragment StoreEntitySet="Apartament">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="Device" ColumnName="Device" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pracivnyk">
+      <EntityTypeMapping TypeName="NightClubModel.Pracivnyk">
+        <MappingFragment StoreEntitySet="Pracivnyk">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Poz" ColumnName="Poz" />
+          <ScalarProperty Name="ZP" ColumnName="ZP" />
+          <ScalarProperty Name="Stavka" ColumnName="Stavka" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rezerv">
+      <EntityTypeMapping TypeName="NightClubModel.Rezerv">
+        <MappingFragment StoreEntitySet="Rezerv">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Room" ColumnName="Room" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

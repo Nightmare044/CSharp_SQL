@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище NightClubModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Apartament">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Room" Type="nvarchar" MaxLength="20" />
+          <Property Name="Device" Type="nvarchar" MaxLength="20" />
+          <Property Name="Place" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="Pracivnyk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Poz" Type="nvarchar" MaxLength="20" />
+          <Property Name="ZP" Type="int" />
+          <Property Name="Stavka" Type="nvarchar" MaxLength="20" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="Rezerv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Room" Type="nvarchar" MaxLength="20" />
+          <Property Name="Place" Type="int" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "C:\USERS\OLEGV\DESKTOP\ПРОЕКТ\LABA3\NIGHTCLUB.MDF.dbo.Users" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Users">
+          <Property Name="id" Type="int" />
+          <Property Name="login" Type="nvarchar" MaxLength="20" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" />
+          <Property Name="level" Type="int" />
+        </EntityType>-->
+        <EntityContainer Name="Хранилище NightClubModelContainer">
+          <EntitySet Name="Apartament" EntityType="Self.Apartament" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracivnyk" EntityType="Self.Pracivnyk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezerv" EntityType="Self.Rezerv" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NightClubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Apartament">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Room" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Device" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Place" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Pracivnyk">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Poz" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ZP" Type="Int32" />
+          <Property Name="Stavka" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Rezerv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Room" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Place" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="NightClubEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Apartament" EntityType="Self.Apartament" />
+          <EntitySet Name="Pracivnyk" EntityType="Self.Pracivnyk" />
+          <EntitySet Name="Rezerv" EntityType="Self.Rezerv" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище NightClubModelContainer" CdmEntityContainer="NightClubEntities">
+          <EntitySetMapping Name="Apartament">
+            <EntityTypeMapping TypeName="NightClubModel.Apartament">
+              <MappingFragment StoreEntitySet="Apartament">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Device" ColumnName="Device" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracivnyk">
+            <EntityTypeMapping TypeName="NightClubModel.Pracivnyk">
+              <MappingFragment StoreEntitySet="Pracivnyk">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Poz" ColumnName="Poz" />
+                <ScalarProperty Name="ZP" ColumnName="ZP" />
+                <ScalarProperty Name="Stavka" ColumnName="Stavka" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezerv">
+            <EntityTypeMapping TypeName="NightClubModel.Rezerv">
+              <MappingFragment StoreEntitySet="Rezerv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

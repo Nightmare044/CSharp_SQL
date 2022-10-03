@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NightClubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Apartament">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Room" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Device" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Place" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Pracivnyk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Poz" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ZP" Type="Int32" />
+    <Property Name="Stavka" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Rezerv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Room" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Place" Type="Int32" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="NightClubEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Apartament" EntityType="Self.Apartament" />
+    <EntitySet Name="Pracivnyk" EntityType="Self.Pracivnyk" />
+    <EntitySet Name="Rezerv" EntityType="Self.Rezerv" />
+  </EntityContainer>
+</Schema>
